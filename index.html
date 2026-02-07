@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>今夜有人听</title>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    #text {
+      max-width: 80%;
+      font-size: 20px;
+      line-height: 1.9;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 600px) {
+      #text {
+        font-size: 18px;
+        max-width: 88%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="text"></div>
+
+  <script>
+    const texts = [
+      "如果你现在还没睡，大概率不是因为不困。",
+      "你不是想要答案，你只是不想一个人扛。",
+      "有些事，白天想不通，夜里也不用非要想通。",
+      "你已经撑得够久了。",
+      "今晚先到这儿，有人听见了。"
+    ];
+
+    const hour = new Date().getHours();
+
+    let index;
+    if (hour >= 23 || hour < 5) {
+      index = Math.floor(Math.random() * texts.length);
+    } else {
+      index = texts.length - 1;
+    }
+
+    document.getElementById("text").innerHTML = texts[index];
+  </script>
+
+</body>
+</html>
